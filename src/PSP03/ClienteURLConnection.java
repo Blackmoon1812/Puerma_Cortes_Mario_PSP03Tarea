@@ -41,6 +41,7 @@ public class ClienteURLConnection {
                 System.out.println("Encabezados destacados:\n* Content-Type: "
                         + contentType);
             }
+        //Capturamos los posibles errores   
         } catch (MalformedURLException m) {
             System.out.println("Error URL Mal formada, " + m);
 
