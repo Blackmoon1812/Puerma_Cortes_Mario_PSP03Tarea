@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.ClienteURLConnection to edit this template
  */
-package clienteUrlConnection;
+package cliente;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,9 +24,7 @@ import java.util.Map;
 public class ClienteURLConnection {
 
     public static void main(String[] args) throws MalformedURLException, IOException {
-        /*Scanner lectura = new Scanner(System.in);
-        System.out.println("Ingrese una direccion web:\n");
-        String web = lectura.nextLine();*/
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Ingrese una direccion web:");
         String web = br.readLine(); // Lee web como un String
@@ -41,8 +39,6 @@ public class ClienteURLConnection {
                 HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
                 //se conecta pudiendo interactuar con parámetros
                 conexion.connect();
-                //obtiene el tipo de contenido
-                String contentType = conexion.getContentType();
 
                 //Observamos el objeto que devuelve getHeaderFields y lo guardamos
                 //en tipo de variable de mismas características
@@ -63,7 +59,7 @@ public class ClienteURLConnection {
                         }
                     }
                 }
-                //conexion.getContentType().contains("text/html")
+
                 if (conexion.getContentType().contains("text/html")) {
                     //Variables para crear archivo y escribir
                     File f = new File("./salida.html");
@@ -85,7 +81,7 @@ public class ClienteURLConnection {
                     bw.close();
                     br.close();
                     fw.close();
-                    
+
                 } else {
                     System.out.println("\nContenido de tipo no HTML.");
                 }
